@@ -8,8 +8,8 @@ all_rows = []
 
 params = {
     "size": 1000,
-    "qs": "date_etablissement_dpe:[2021-01-01 TO 2021-12-31] OR date_etablissement_dpe:[2024-01-01 TO 2024-12-31]",
-    "select": "numero_dpe,date_etablissement_dpe,methode_application_dpe, etiquette_dpe, type_batiment, periode_construction, zone_climatique, code_insee_ban, typologie_logement, nombre_niveau_immeuble, nombre_niveau_logement, nombre_appartement, type_energie_principale_chauffage, type_energie_principale_ecs, type_ventilation, conso_5_usages_par_m2_ep, emission_ges_5_usages_par_m2, cout_chauffage, cout_ecs, cout_total_5_usages",
+    "qs": "date_etablissement_dpe:[2021-01-01 TO 2024-12-31]",
+    "select": "numero_dpe,date_etablissement_dpe,methode_application_dpe,etiquette_dpe,type_batiment,periode_construction,zone_climatique,code_insee_ban,typologie_logement,nombre_niveau_immeuble,nombre_niveau_logement,nombre_appartement,type_energie_principale_chauffage,type_energie_principale_ecs,type_ventilation,conso_5_usages_par_m2_ep,emission_ges_5_usages_par_m2,cout_chauffage,cout_ecs,cout_total_5_usages",
     "sort": "_id"
 }
 
@@ -42,8 +42,6 @@ while True:
 
         pd.DataFrame(all_rows).to_csv("dpe_2021_2024_partial.csv", index=False)
         print(f"  → checkpoint saved")
-
-df = pd.DataFrame(all_rows)
 
 df = pd.DataFrame(all_rows)
 df.to_csv("dpe_2021_2024.csv", index=False)
